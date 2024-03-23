@@ -3,6 +3,7 @@ import JobDetails from "../JobDetais/JobDetails";
 
 const FeaturedJobs = () => {
     const [data, setData] = useState([])
+    const [dataLength, setDataLength] = useState(4)
 
     useEffect(()=>{
         fetch('jobs.json')
@@ -21,8 +22,11 @@ console.log(data);
       </div>
       <div className="grid md:grid-cols-2 grid-cols-1 gap-8">
         {
-            data.map(job => <JobDetails key={job.id} job={job}></JobDetails>)
+            data.slice(0, dataLength).map(job => <JobDetails key={job.id} job={job}></JobDetails>)
         }
+      </div>
+      <div className="text-center my-7">
+        <button onClick={() => setDataLength(data.length)} className="text-xl font-semibold text-white bg-primary px-7 py-4">See All Jobs</button>
       </div>
     </div>
   );

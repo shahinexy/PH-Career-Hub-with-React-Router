@@ -40,15 +40,15 @@ const Header = () => {
                 {navItems}
               </ul>
             </div>
-            <a className="btn btn-ghost text-xl">daisyUI</a>
+            <a className="btn btn-ghost text-xl text-primary font-bold">Career Hub</a>
           </div>
           <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal px-1 space-x-5">
+            <ul className="menu menu-horizontal px-1 space-x-5 text-lg">
               {navItems}
             </ul>
           </div>
           <div className="navbar-end">
-            <a className="btn">Button</a>
+            <a className="btn bg-primary text-white text-lg font-semibold">Star Applying</a>
           </div>
         </div>
       </nav>

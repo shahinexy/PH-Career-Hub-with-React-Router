@@ -9,10 +9,10 @@ const JobDetails = ({job}) => {
                 <h3 className="text-xl font-semibold">{job.job_title}</h3>
                 <p>{job.company_name}</p>
                 <div>
-                    <button>{job.job_type}</button>
-                    <button> btn 2</button>
+                    <button className="btn border-[2px] border-primary">{job.remote_or_onsite}</button>
+                    <button className="btn ml-5 border-[2px] border-primary">{job.job_type}</button>
                 </div>
-                <div>
+                <div className="flex gap-5">
                     <p>{job.location}</p>
                     <p>Salary {job.salary}</p>
                 </div>
