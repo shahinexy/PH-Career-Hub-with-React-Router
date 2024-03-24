@@ -1,4 +1,5 @@
 import { useLoaderData, useParams } from "react-router-dom";
+import { saveApplication } from "../../utility/LocalStroge";
 
 
 const JobDetailsData = () => {
@@ -6,7 +7,11 @@ const JobDetailsData = () => {
     const {jobId} = useParams();
     const jobInt = parseInt(jobId)
     const job = jobData.find(job => job.id === jobInt)
-    console.log(job);
+
+    const handleApply = () =>{
+        saveApplication(jobInt)
+    }
+
     return (
         <div>
             <div className="md:flex gap-7">
@@ -28,7 +33,7 @@ const JobDetailsData = () => {
                         <p><span className="font-semibold">Email:</span> {job.contact_information.email}</p>
                         <p><span className="font-semibold">Address:</span> {job.contact_information.address}</p>
                     </div>
-                    <button className="w-full bg-primary py-3 my-5 text-xl font-semibold text-white">Apply Now</button>
+                    <button onClick={handleApply} className="w-full bg-primary py-3 my-5 text-xl font-semibold text-white">Apply Now</button>
                 </div>
             </div>
         </div>

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const JobDetails = ({ job }) => {
   return (
     <div>
-      <div className="border-[1px] border-gray-400  shadow-lg p-5 space-y-5">
+      <div className="border-[1px] border-primary  shadow-lg p-5 space-y-5">
         <img className="h-16" src={job.logo} alt="" />
         <h3 className="text-xl font-semibold">{job.job_title}</h3>
         <p>{job.company_name}</p>
