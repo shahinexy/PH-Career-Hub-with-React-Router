@@ -1,12 +1,19 @@
 import { NavLink } from "react-router-dom";
 
 const Header = () => {
-  const navItems = <> 
-    <li><NavLink to={'/'}>Home</NavLink></li>
-    <li><NavLink to={'/applied'}>Applied Job</NavLink></li>
-    <li><NavLink to={'/statistics'}>Statistics</NavLink></li>
-    <li><NavLink to={'/blog'}>Blog</NavLink></li>
-  </>
+  const navItems = (
+    <>
+      <li>
+        <NavLink to={"/"}>Home</NavLink>
+      </li>
+      <li>
+        <NavLink to={"/applied"}>Applied Job</NavLink>
+      </li>
+      <li>
+        <NavLink to={"/blog"}>Blog</NavLink>
+      </li>
+    </>
+  );
   return (
     <div>
       <nav>
@@ -40,7 +47,9 @@ const Header = () => {
                 {navItems}
               </ul>
             </div>
-            <a className="btn btn-ghost text-xl text-primary font-bold">Career Hub</a>
+            <a className="btn btn-ghost text-xl text-primary font-bold">
+              Career Hub
+            </a>
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1 space-x-5 text-lg">
@@ -48,7 +57,9 @@ const Header = () => {
             </ul>
           </div>
           <div className="navbar-end">
-            <a className="btn bg-primary text-white text-lg font-semibold">Star Applying</a>
+            <a className="btn bg-primary text-white text-lg font-semibold">
+              Star Applying
+            </a>
           </div>
         </div>
       </nav>

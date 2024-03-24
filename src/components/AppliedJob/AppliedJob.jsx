@@ -5,6 +5,7 @@ import { getStoredApplication } from "../../utility/LocalStroge";
 const AppliedJob = () => {
   const datas = useLoaderData();
   const [jobApplied, setJobApplied] = useState([]);
+  const [displayAppliedJob, setDisplayAppliedJob] = useState([]);
 
   useEffect(() => {
     const storedJobId = getStoredApplication();
@@ -21,16 +22,51 @@ const AppliedJob = () => {
       // another way
       const appliedJob = datas.filter((job) => storedJobId.includes(job.id));
       setJobApplied(appliedJob);
+      setDisplayAppliedJob(appliedJob);
     }
   }, [datas]);
+
+  const handleDisplayAppliedJob = (display) => {
+    if (display === "all") {
+      setDisplayAppliedJob(jobApplied);
+    } else if (display === "remote") {
+      const remote = jobApplied.filter(
+        (job) => job.remote_or_onsite === "Remote"
+      );
+      setDisplayAppliedJob(remote);
+    } else if (display === "onsite") {
+      const onsite = jobApplied.filter(
+        (job) => job.remote_or_onsite === "Onsite"
+      );
+      setDisplayAppliedJob(onsite);
+    }
+  };
 
   return (
     <div>
       <h2 className="text-2xl font-semibold text-primary text-center my-6">
         Applied jobs: {jobApplied.length}
       </h2>
+
+      <details className="dropdown  my-5">
+        <summary className="m-1 btn bg-primary text-white font-semibold md:text-lg">
+          Filter By
+        </summary>
+        <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+          <li onClick={() => handleDisplayAppliedJob("all")}>
+            <a>All</a>
+          </li>
+          <li onClick={() => handleDisplayAppliedJob("remote")}>
+            <a>Remote</a>
+          </li>
+          <li onClick={() => handleDisplayAppliedJob("onsite")}>
+            <a>Onsite</a>
+          </li>
+        </ul>
+      </details>
+
       <div>
-        {jobApplied.map((job) => (
+        {displayAppliedJob.map((job) => (
           <div key={job.id} className="my-7 shadow-xl p-5">
             <div className="flex gap-5 items-center">
               <img className="w-44 h-28" src={job.logo} alt="" />

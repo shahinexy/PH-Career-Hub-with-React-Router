@@ -20,9 +20,9 @@ const JobDetails = ({ job }) => {
           <p>Salary {job.salary}</p>
         </div>
         <Link to={`/job/${job.id}`}>
-        <button className="text-xl font-semibold bg-primary px-5 py-2 text-white">
-          View Details
-        </button>
+          <button className="text-xl font-semibold bg-primary px-5 py-2 text-white">
+            View Details
+          </button>
         </Link>
       </div>
     </div>

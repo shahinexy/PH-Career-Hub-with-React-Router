@@ -10,7 +10,7 @@ const FeaturedJobs = () => {
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
-  
+
   return (
     <div className="my-10">
       <div className="text-center my-5">
